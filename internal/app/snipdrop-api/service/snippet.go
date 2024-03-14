@@ -4,10 +4,13 @@ import (
 	"context"
 	"snipdrop-rest-api/internal/app/snipdrop-api/model"
 	"snipdrop-rest-api/internal/app/snipdrop-api/repository"
+
+	"go.uber.org/zap"
 )
 
 type SnippetService struct {
-	Repo *repository.SnippetRepository
+	Repo   *repository.SnippetRepository
+	Logger *zap.Logger
 }
 
 func (s *SnippetService) ListSnippets(ctx context.Context, params repository.SnippetQueryParams) ([]model.Snippet, error) {

@@ -7,10 +7,12 @@ import (
 	"snipdrop-rest-api/internal/app/snipdrop-api/service"
 
 	"github.com/gin-gonic/gin"
+	"go.uber.org/zap"
 )
 
 type SnippetController struct {
 	Service *service.SnippetService
+	Logger  *zap.Logger
 }
 
 func (c *SnippetController) ListSnippets(ctx *gin.Context) {

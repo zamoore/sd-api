@@ -6,10 +6,13 @@ import (
 	"fmt"
 	"snipdrop-rest-api/internal/app/snipdrop-api/model"
 	"strings"
+
+	"go.uber.org/zap"
 )
 
 type SnippetRepository struct {
-	DB *sql.DB
+	DB     *sql.DB
+	Logger *zap.Logger
 }
 
 type SnippetQueryParams struct {
