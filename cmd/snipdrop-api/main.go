@@ -55,7 +55,7 @@ func setupRoutes(router *gin.Engine, snippetController *controller.SnippetContro
 	})
 
 	// Snippet routes
-	router.POST("/snippets", middleware.JwtMiddleware(), snippetController.CreateSnippet)
+	router.POST("/snippets", middleware.EnsureValidToken(), snippetController.CreateSnippet)
 	router.GET("/snippets", snippetController.ListSnippets)
 	router.GET("/snippets/:id", snippetController.GetSnippet)
 	router.DELETE("/snippets/:id", snippetController.DeleteSnippet)
