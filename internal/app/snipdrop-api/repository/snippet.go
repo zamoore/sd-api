@@ -88,8 +88,8 @@ func (r *SnippetRepository) ListSnippets(ctx context.Context, params SnippetQuer
 
 // NewSnippet creates a new snippet in the database.
 func (r *SnippetRepository) NewSnippet(ctx context.Context, s model.Snippet) error {
-	_, err := r.DB.ExecContext(ctx, "INSERT INTO snippets (id, created_at, value, name, author) VALUES ($1, $2, $3, $4, $5)",
-		s.ID, s.CreatedAt, s.Value, s.Name, s.Author)
+	_, err := r.DB.ExecContext(ctx, "INSERT INTO snippets (value, name, author) VALUES ($1, $2, $3)",
+		s.Value, s.Name, s.Author)
 	return err
 }
 

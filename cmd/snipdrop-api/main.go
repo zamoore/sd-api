@@ -4,7 +4,6 @@ import (
 	"log"
 	"net/http"
 	"snipdrop-rest-api/internal/app/snipdrop-api/controller"
-	"snipdrop-rest-api/internal/app/snipdrop-api/middleware"
 	"snipdrop-rest-api/internal/app/snipdrop-api/repository"
 	"snipdrop-rest-api/internal/app/snipdrop-api/service"
 	"snipdrop-rest-api/internal/pkg/config"
@@ -59,7 +58,7 @@ func setupRoutes(router *gin.Engine, snippetController *controller.SnippetContro
 	})
 
 	// Snippet routes
-	router.POST("/snippets", middleware.EnsureValidToken(), snippetController.CreateSnippet)
+	router.POST("/snippets", snippetController.CreateSnippet)
 	router.GET("/snippets", snippetController.ListSnippets)
 	router.GET("/snippets/:id", snippetController.GetSnippet)
 	router.DELETE("/snippets/:id", snippetController.DeleteSnippet)

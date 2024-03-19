@@ -7,7 +7,7 @@ if [ -z "$1" ]; then
 fi
 
 DATABASE_URL="postgres://zackmoore@localhost:5432/snipdrop?sslmode=disable"
-MIGRATIONS_PATH="database/migrations"
+MIGRATIONS_PATH="migrations"
 
 case "$1" in
   up)
