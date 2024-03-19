@@ -8,6 +8,7 @@ require (
 )
 
 require (
+	github.com/gin-contrib/cors v1.7.0 // indirect
 	github.com/go-jose/go-jose/v3 v3.0.1 // indirect
 	github.com/golang/protobuf v1.5.3 // indirect
 	golang.org/x/sync v0.6.0 // indirect

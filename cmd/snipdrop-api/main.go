@@ -10,6 +10,7 @@ import (
 	"snipdrop-rest-api/internal/pkg/config"
 	database "snipdrop-rest-api/internal/pkg/db"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 )
@@ -34,6 +35,9 @@ func main() {
 
 	// Set up the Gin router
 	router := gin.Default()
+
+	// CORS middleware configuration
+	router.Use(cors.Default())
 
 	// Setup repository, service, and controller
 	snippetRepo := &repository.SnippetRepository{DB: database, Logger: logger}
